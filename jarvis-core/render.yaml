@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: jarvis-core
+    env: docker
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: JARVIS_API_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
+      - key: JARVIS_ACTIVE_PROVIDER
+        value: GEMINI

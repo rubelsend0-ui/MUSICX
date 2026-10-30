@@ -1,0 +1,27 @@
+server:
+  port: ${PORT:8080}
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: jarvis-core
+
+jarvis:
+  security:
+    api-secret: ${JARVIS_API_SECRET:}
+    rate-limit:
+      capacity: ${JARVIS_RATE_LIMIT_CAPACITY:60}
+      refill-tokens-per-minute: ${JARVIS_RATE_LIMIT_REFILL:60}
+  memory:
+    max-sessions: ${JARVIS_MEMORY_MAX_SESSIONS:1000}
+    max-messages-per-session: ${JARVIS_MEMORY_MAX_MESSAGES:20}
+  brain:
+    active-provider: ${JARVIS_ACTIVE_PROVIDER:GEMINI}
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      model: ${GEMINI_MODEL:gemini-1.5-flash}
+      base-url: ${GEMINI_BASE_URL:https://generativelanguage.googleapis.com/v1beta}
+      connect-timeout-ms: 5000
+      read-timeout-ms: 30000
+      max-retries: 3
+      initial-backoff-ms: 1000
